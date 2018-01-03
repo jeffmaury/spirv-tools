@@ -5,7 +5,7 @@
 
 Name:           spirv-tools
 Version:        2016.7
-Release:        0.1%{?gitrel}%{?dist}
+Release:        0.2%{?gitrel}%{?dist}
 Summary:        API and commands for processing SPIR-V modules
 
 License:        ASL 2.0
@@ -25,6 +25,7 @@ disassembler, and validator for SPIR-V..
 
 %package        devel
 Summary:        Development files for %{name}
+Requires:       %{name}%{?_isa} = %{version}-%{release}
 
 %description    devel
 The SPIR-V Tool library contains all of the implementation details
@@ -47,7 +48,7 @@ popd
 %install
 %{make_install} -C %_target_platform
 
-%files devel
+%files
 %license LICENSE
 %doc README.md CHANGES
 %{_bindir}/spirv-as
@@ -58,12 +59,17 @@ popd
 %{_bindir}/spirv-opt
 %{_bindir}/spirv-stats
 %{_bindir}/spirv-val
+
+%files devel
 %{_includedir}/spirv-tools/
 %{_libdir}/libSPIRV-Tools-link.a
 %{_libdir}/libSPIRV-Tools-opt.a
 %{_libdir}/libSPIRV-Tools.a
 
 %changelog
+* Wed Jan 03 2018 Leigh Scott <leigh123linux@googlemail.com> - 2016.7-0.2.20171023.git5834719
+- Split binaries into main package
+
 * Thu Jul 13 2017 Leigh Scott <leigh123linux@googlemail.com> - 2016.7-0.1.20171023.git5834719
 - First build
 
