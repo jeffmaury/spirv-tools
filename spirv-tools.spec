@@ -16,7 +16,7 @@ Patch0:         SPIRV-Tools_staticlib.patch
 BuildRequires:  cmake3
 BuildRequires:  gcc-c++
 BuildRequires:  python2-devel
-BuildRequires:  python-simplejson
+BuildRequires:  python2-simplejson
 BuildRequires:  spirv-headers-devel
 
 %description
