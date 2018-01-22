@@ -5,7 +5,7 @@
 
 Name:           spirv-tools
 Version:        2016.7
-Release:        0.2%{?gitrel}%{?dist}
+Release:        0.3%{?gitrel}%{?dist}
 Summary:        API and commands for processing SPIR-V modules
 
 License:        ASL 2.0
@@ -67,6 +67,9 @@ popd
 %{_libdir}/libSPIRV-Tools.a
 
 %changelog
+* Mon Jan 22 2018 Leigh Scott <leigh123linux@googlemail.com> - 2016.7-0.3.20171023.git5834719
+- Add python prefix to fix the stupid Bodhi tests
+
 * Wed Jan 03 2018 Leigh Scott <leigh123linux@googlemail.com> - 2016.7-0.2.20171023.git5834719
 - Split binaries into main package
 
