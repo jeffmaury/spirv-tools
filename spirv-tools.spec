@@ -5,7 +5,7 @@
 
 Name:           spirv-tools
 Version:        2016.7
-Release:        0.3%{?gitrel}%{?dist}
+Release:        0.4%{?gitrel}%{?dist}
 Summary:        API and commands for processing SPIR-V modules
 
 License:        ASL 2.0
@@ -15,6 +15,7 @@ Patch0:         SPIRV-Tools_staticlib.patch
 
 BuildRequires:  cmake3
 BuildRequires:  gcc-c++
+BuildRequires:  ninja-build
 BuildRequires:  python2-devel
 BuildRequires:  python2-simplejson
 BuildRequires:  spirv-headers-devel
@@ -40,13 +41,16 @@ integration into other code bases directly.
 %__mkdir_p %_target_platform
 pushd %_target_platform
 %cmake3 -DCMAKE_BUILD_TYPE=Release \
+        -DPYTHON_EXECUTABLE:FILEPATH=%{_bindir}/python%{python2_version} \
         -DCMAKE_INSTALL_LIBDIR=%{_libdir} \
-        -DSPIRV-Headers_SOURCE_DIR=%{_prefix} ..
-%{make_build}
+        -DSPIRV_WERROR=OFF \
+        -DSPIRV-Headers_SOURCE_DIR=%{_prefix} \
+        -GNinja ..
+%ninja_build
 popd
 
 %install
-%{make_install} -C %_target_platform
+%ninja_install -C %_target_platform
 
 %files
 %license LICENSE
@@ -67,6 +71,9 @@ popd
 %{_libdir}/libSPIRV-Tools.a
 
 %changelog
+* Fri Feb 09 2018 Leigh Scott <leigh123linux@googlemail.com> - 2016.7-0.4.20171023.git5834719
+- Use ninja to build
+
 * Mon Jan 22 2018 Leigh Scott <leigh123linux@googlemail.com> - 2016.7-0.3.20171023.git5834719
 - Add python prefix to fix the stupid Bodhi tests
 
