@@ -18,20 +18,24 @@ BuildRequires:  ninja-build
 BuildRequires:  python2-devel
 BuildRequires:  python2-simplejson
 BuildRequires:  spirv-headers-devel
+Requires:       %{name}-libs%{?_isa} = %{version}-%{release}
 
 %description
 The package includes an assembler, binary module parser,
 disassembler, and validator for SPIR-V..
 
+%package        libs
+Summary:        Library files for %{name}
+
+%description    libs
+library files for %{name}
+
 %package        devel
 Summary:        Development files for %{name}
-Requires:       %{name}%{?_isa} = %{version}-%{release}
+Requires:       %{name}-libs%{?_isa} = %{version}-%{release}
 
 %description    devel
-The SPIR-V Tool library contains all of the implementation details
-driving the SPIR-V assembler, binary module parser, disassembler and
-validator, and is used in the standalone tools whilst also enabling
-integration into other code bases directly.
+Development files for %{name}
 
 %prep
 %autosetup -p1 -n SPIRV-Tools-%{commit}
@@ -51,6 +55,8 @@ popd
 %install
 %ninja_install -C %_target_platform
 
+%ldconfig_scriptlets libs
+
 %files
 %license LICENSE
 %doc README.md CHANGES
@@ -62,6 +68,8 @@ popd
 %{_bindir}/spirv-opt
 %{_bindir}/spirv-stats
 %{_bindir}/spirv-val
+
+%files libs
 %{_libdir}/libSPIRV-Tools-link.so
 %{_libdir}/libSPIRV-Tools-opt.so
 %{_libdir}/libSPIRV-Tools.so
@@ -74,6 +82,7 @@ popd
 * Fri Feb 09 2018 Leigh Scott <leigh123linux@googlemail.com> - 2016.7-0.5.20180205.git9e19fc0
 - Update for vulkan 1.0.68.0
 - Try building as shared object
+- Split libs into -libs subpackage
 
 * Fri Feb 09 2018 Leigh Scott <leigh123linux@googlemail.com> - 2016.7-0.4.20171023.git5834719
 - Use ninja to build
