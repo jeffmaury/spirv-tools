@@ -5,12 +5,14 @@
 
 Name:           spirv-tools
 Version:        2016.7
-Release:        0.5%{?gitrel}%{?dist}
+Release:        0.6%{?gitrel}%{?dist}
 Summary:        API and commands for processing SPIR-V modules
 
 License:        ASL 2.0
-URL:            https://github.com/KhronosGroup
-Source0:        %url/SPIRV-Tools/archive/%{commit}.tar.gz#/%{name}-%{commit}.tar.gz
+URL:            https://github.com/KhronosGroup/SPIRV-Tools
+Source0:        %url/archive/%{commit}.tar.gz#/%{name}-%{commit}.tar.gz
+# Based on https://github.com/KhronosGroup/SPIRV-Tools/commit/4e4a254bc85ea41af93a048f1713ef27e04c01ab
+Patch0:         fix_pkconfig_pc_file.patch
 
 BuildRequires:  cmake3
 BuildRequires:  gcc-c++
@@ -26,6 +28,7 @@ disassembler, and validator for SPIR-V..
 
 %package        libs
 Summary:        Library files for %{name}
+Provides:       %{name}-libs = 2018.1.0
 
 %description    libs
 library files for %{name}
@@ -45,7 +48,7 @@ Development files for %{name}
 pushd %_target_platform
 %cmake3 -DCMAKE_BUILD_TYPE=Release \
         -DPYTHON_EXECUTABLE:FILEPATH=%{_bindir}/python%{python2_version} \
-        -DCMAKE_INSTALL_LIBDIR=%{_libdir} \
+        -DCMAKE_INSTALL_LIBDIR=%{_lib} \
         -DSPIRV_WERROR=OFF \
         -DSPIRV-Headers_SOURCE_DIR=%{_prefix} \
         -GNinja ..
@@ -79,6 +82,10 @@ popd
 %{_libdir}/pkgconfig/SPIRV-Tools.pc
 
 %changelog
+* Fri Feb 09 2018 Leigh Scott <leigh123linux@googlemail.com> - 2016.7-0.6.20180205.git9e19fc0
+- Fix pkgconfig file
+- Add version provides to -libs package
+
 * Fri Feb 09 2018 Leigh Scott <leigh123linux@googlemail.com> - 2016.7-0.5.20180205.git9e19fc0
 - Update for vulkan 1.0.68.0
 - Try building as shared object

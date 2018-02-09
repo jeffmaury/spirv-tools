@@ -1,0 +1,38 @@
+From 4e4a254bc85ea41af93a048f1713ef27e04c01ab Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?J=C3=B3zef=20Kucia?= <joseph.kucia@gmail.com>
+Date: Fri, 9 Feb 2018 12:30:08 +0100
+Subject: [PATCH] Do not hardcode libdir and includedir in pkg config files
+
+---
+ CMakeLists.txt                 | 4 ++++
+ cmake/SPIRV-Tools-shared.pc.in | 4 ++--
+ cmake/SPIRV-Tools.pc.in        | 4 ++--
+ 3 files changed, 8 insertions(+), 4 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 011baf9b0..a2fc21620 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -234,6 +234,8 @@ add_custom_target(spirv-tools-pkg-config ALL
+                       -DTEMPLATE_FILE=${CMAKE_CURRENT_SOURCE_DIR}/cmake/SPIRV-Tools.pc.in
+                       -DOUT_FILE=${CMAKE_CURRENT_BINARY_DIR}/SPIRV-Tools.pc
+                       -DCMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX}
++                      -DCMAKE_INSTALL_LIBDIR=${CMAKE_INSTALL_LIBDIR}
++                      -DCMAKE_INSTALL_INCLUDEDIR=${CMAKE_INSTALL_INCLUDEDIR}
+                       -DSPIRV_LIBRARIES=${SPIRV_LIBRARIES}
+                       -P ${CMAKE_CURRENT_SOURCE_DIR}/cmake/write_pkg_config.cmake
+         DEPENDS "CHANGES" "cmake/SPIRV-Tools.pc.in" "cmake/write_pkg_config.cmake")
+diff --git a/cmake/SPIRV-Tools-shared.pc.in b/cmake/SPIRV-Tools-shared.pc.in
+index a652d5e49..2984dc57f 100644
+--- a/cmake/SPIRV-Tools.pc.in
++++ b/cmake/SPIRV-Tools.pc.in
+@@ -1,7 +1,7 @@
+ prefix=@CMAKE_INSTALL_PREFIX@
+ exec_prefix=${prefix}
+-libdir=${prefix}/lib64
+-includedir=${prefix}/include
++libdir=${prefix}/@CMAKE_INSTALL_LIBDIR@
++includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@
+ 
+ Name: SPIRV-Tools
+ Description: Tools for SPIR-V
