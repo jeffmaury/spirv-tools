@@ -1,17 +1,16 @@
-%global commit 5834719fc17d4735fce0102738b87b70255cfd5f
+%global commit 9e19fc0f31ceaf1f6bc907dbf17dcfded85f2ce8
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
-%global commit_date 20171023
+%global commit_date 20180205
 %global gitrel .%{commit_date}.git%{shortcommit}
 
 Name:           spirv-tools
 Version:        2016.7
-Release:        0.4%{?gitrel}%{?dist}
+Release:        0.5%{?gitrel}%{?dist}
 Summary:        API and commands for processing SPIR-V modules
 
 License:        ASL 2.0
 URL:            https://github.com/KhronosGroup
 Source0:        %url/SPIRV-Tools/archive/%{commit}.tar.gz#/%{name}-%{commit}.tar.gz
-Patch0:         SPIRV-Tools_staticlib.patch
 
 BuildRequires:  cmake3
 BuildRequires:  gcc-c++
@@ -63,14 +62,19 @@ popd
 %{_bindir}/spirv-opt
 %{_bindir}/spirv-stats
 %{_bindir}/spirv-val
+%{_libdir}/libSPIRV-Tools-link.so
+%{_libdir}/libSPIRV-Tools-opt.so
+%{_libdir}/libSPIRV-Tools.so
 
 %files devel
 %{_includedir}/spirv-tools/
-%{_libdir}/libSPIRV-Tools-link.a
-%{_libdir}/libSPIRV-Tools-opt.a
-%{_libdir}/libSPIRV-Tools.a
+%{_libdir}/pkgconfig/SPIRV-Tools.pc
 
 %changelog
+* Fri Feb 09 2018 Leigh Scott <leigh123linux@googlemail.com> - 2016.7-0.5.20180205.git9e19fc0
+- Update for vulkan 1.0.68.0
+- Try building as shared object
+
 * Fri Feb 09 2018 Leigh Scott <leigh123linux@googlemail.com> - 2016.7-0.4.20171023.git5834719
 - Use ninja to build
 
