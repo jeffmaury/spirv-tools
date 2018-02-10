@@ -4,8 +4,8 @@
 %global gitrel .%{commit_date}.git%{shortcommit}
 
 Name:           spirv-tools
-Version:        2016.7
-Release:        0.6%{?gitrel}%{?dist}
+Version:        2018.1
+Release:        0.1%{?gitrel}%{?dist}
 Summary:        API and commands for processing SPIR-V modules
 
 License:        ASL 2.0
@@ -82,7 +82,8 @@ popd
 %{_libdir}/pkgconfig/SPIRV-Tools.pc
 
 %changelog
-* Fri Feb 09 2018 Leigh Scott <leigh123linux@googlemail.com> - 2016.7-0.6.20180205.git9e19fc0
+* Fri Feb 09 2018 Leigh Scott <leigh123linux@googlemail.com> - 2018.1-0.1.20180205.git9e19fc0
+- Fix version
 - Fix pkgconfig file
 - Add version provides to -libs package
 
