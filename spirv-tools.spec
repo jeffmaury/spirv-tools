@@ -5,7 +5,7 @@
 
 Name:           spirv-tools
 Version:        2018.1
-Release:        0.1%{?gitrel}%{?dist}
+Release:        0.2%{?gitrel}%{?dist}
 Summary:        API and commands for processing SPIR-V modules
 
 License:        ASL 2.0
@@ -28,7 +28,7 @@ disassembler, and validator for SPIR-V..
 
 %package        libs
 Summary:        Library files for %{name}
-Provides:       %{name}-libs = 2018.1.0
+Provides:       %{name}-libs%{?_isa} = 2018.1.0
 
 %description    libs
 library files for %{name}
@@ -82,6 +82,9 @@ popd
 %{_libdir}/pkgconfig/SPIRV-Tools.pc
 
 %changelog
+* Wed Feb 14 2018 Leigh Scott <leigh123linux@googlemail.com> - 2018.1-0.2.20180205.git9e19fc0
+- Add isa to the provides
+
 * Fri Feb 09 2018 Leigh Scott <leigh123linux@googlemail.com> - 2018.1-0.1.20180205.git9e19fc0
 - Fix version
 - Fix pkgconfig file
