@@ -1,18 +1,16 @@
-%global commit 9e19fc0f31ceaf1f6bc907dbf17dcfded85f2ce8
+%global commit 26a698c34788bb69123a1f3789970a16cf4d9641
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
-%global commit_date 20180205
+%global commit_date 20180407
 %global gitrel .%{commit_date}.git%{shortcommit}
 
 Name:           spirv-tools
 Version:        2018.1
-Release:        0.2%{?gitrel}%{?dist}
+Release:        0.3%{?gitrel}%{?dist}
 Summary:        API and commands for processing SPIR-V modules
 
 License:        ASL 2.0
 URL:            https://github.com/KhronosGroup/SPIRV-Tools
 Source0:        %url/archive/%{commit}.tar.gz#/%{name}-%{commit}.tar.gz
-# Based on https://github.com/KhronosGroup/SPIRV-Tools/commit/4e4a254bc85ea41af93a048f1713ef27e04c01ab
-Patch0:         fix_pkconfig_pc_file.patch
 
 BuildRequires:  cmake3
 BuildRequires:  gcc-c++
@@ -49,7 +47,6 @@ pushd %_target_platform
 %cmake3 -DCMAKE_BUILD_TYPE=Release \
         -DPYTHON_EXECUTABLE:FILEPATH=%{_bindir}/python%{python2_version} \
         -DCMAKE_INSTALL_LIBDIR=%{_lib} \
-        -DSPIRV_WERROR=OFF \
         -DSPIRV-Headers_SOURCE_DIR=%{_prefix} \
         -GNinja ..
 %ninja_build
@@ -75,13 +72,18 @@ popd
 %files libs
 %{_libdir}/libSPIRV-Tools-link.so
 %{_libdir}/libSPIRV-Tools-opt.so
+%{_libdir}/libSPIRV-Tools-shared.so
 %{_libdir}/libSPIRV-Tools.so
 
 %files devel
 %{_includedir}/spirv-tools/
+%{_libdir}/pkgconfig/SPIRV-Tools-shared.pc
 %{_libdir}/pkgconfig/SPIRV-Tools.pc
 
 %changelog
+* Tue Apr 24 2018 Leigh Scott <leigh123linux@googlemail.com> - 2018.1-0.3.20180407.git26a698c
+- Update for vulkan 1.1.73.0
+
 * Wed Feb 14 2018 Leigh Scott <leigh123linux@googlemail.com> - 2018.1-0.2.20180205.git9e19fc0
 - Add isa to the provides
 
