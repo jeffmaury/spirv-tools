@@ -5,7 +5,7 @@
 
 Name:           spirv-tools
 Version:        2018.1
-Release:        0.3%{?gitrel}%{?dist}
+Release:        0.4%{?gitrel}%{?dist}
 Summary:        API and commands for processing SPIR-V modules
 
 License:        ASL 2.0
@@ -26,7 +26,7 @@ disassembler, and validator for SPIR-V..
 
 %package        libs
 Summary:        Library files for %{name}
-Provides:       %{name}-libs%{?_isa} = 2018.1.0
+Provides:       %{name}-libs%{?_isa} = 2018.3.0
 
 %description    libs
 library files for %{name}
@@ -81,6 +81,9 @@ popd
 %{_libdir}/pkgconfig/SPIRV-Tools.pc
 
 %changelog
+* Tue Apr 24 2018 Leigh Scott <leigh123linux@googlemail.com> - 2018.1-0.4.20180407.git26a698c
+- Bump provides to 2018.3.0
+
 * Tue Apr 24 2018 Leigh Scott <leigh123linux@googlemail.com> - 2018.1-0.3.20180407.git26a698c
 - Update for vulkan 1.1.73.0
 
