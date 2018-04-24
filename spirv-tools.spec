@@ -4,8 +4,8 @@
 %global gitrel .%{commit_date}.git%{shortcommit}
 
 Name:           spirv-tools
-Version:        2018.1
-Release:        0.4%{?gitrel}%{?dist}
+Version:        2018.3.0
+Release:        0.1%{?gitrel}%{?dist}
 Summary:        API and commands for processing SPIR-V modules
 
 License:        ASL 2.0
@@ -26,7 +26,7 @@ disassembler, and validator for SPIR-V..
 
 %package        libs
 Summary:        Library files for %{name}
-Provides:       %{name}-libs%{?_isa} = 2018.3.0
+Provides:       %{name}-libs%{?_isa} = %{version}
 
 %description    libs
 library files for %{name}
@@ -81,6 +81,9 @@ popd
 %{_libdir}/pkgconfig/SPIRV-Tools.pc
 
 %changelog
+* Tue Apr 24 2018 Leigh Scott <leigh123linux@googlemail.com> - 2018.3.0-0.1.20180407.git26a698c
+- Bump version to 2018.3.0 to match .pc files
+
 * Tue Apr 24 2018 Leigh Scott <leigh123linux@googlemail.com> - 2018.1-0.4.20180407.git26a698c
 - Bump provides to 2018.3.0
 
