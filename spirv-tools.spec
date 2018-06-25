@@ -44,7 +44,6 @@ Development files for %{name}
 %__mkdir_p %_target_platform
 pushd %_target_platform
 %cmake3 -DCMAKE_BUILD_TYPE=Release \
-        -DPYTHON_EXECUTABLE:FILEPATH=%{_bindir}/python%{python2_version} \
         -DCMAKE_INSTALL_LIBDIR=%{_lib} \
         -DSPIRV-Headers_SOURCE_DIR=%{_prefix} \
         -GNinja ..
