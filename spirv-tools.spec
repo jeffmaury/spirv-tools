@@ -5,7 +5,7 @@
 
 Name:           spirv-tools
 Version:        2018.3.0
-Release:        0.1%{?gitrel}%{?dist}
+Release:        0.2%{?gitrel}%{?dist}
 Summary:        API and commands for processing SPIR-V modules
 
 License:        ASL 2.0
@@ -15,8 +15,7 @@ Source0:        %url/archive/%{commit}.tar.gz#/%{name}-%{commit}.tar.gz
 BuildRequires:  cmake3
 BuildRequires:  gcc-c++
 BuildRequires:  ninja-build
-BuildRequires:  python2-devel
-BuildRequires:  python2-simplejson
+BuildRequires:  python3
 BuildRequires:  spirv-headers-devel
 Requires:       %{name}-libs%{?_isa} = %{version}-%{release}
 
@@ -81,6 +80,9 @@ popd
 %{_libdir}/pkgconfig/SPIRV-Tools.pc
 
 %changelog
+* Mon Jun 25 2018 Dave Airlie <airlied@redhat.com> - 2018.3.0-0.2.20180407.git26a698c
+- Move to python3 and drop the simplejson buildreq.
+
 * Tue Apr 24 2018 Leigh Scott <leigh123linux@googlemail.com> - 2018.3.0-0.1.20180407.git26a698c
 - Bump version to 2018.3.0 to match .pc files
 
