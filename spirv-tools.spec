@@ -1,16 +1,16 @@
-%global commit 26a698c34788bb69123a1f3789970a16cf4d9641
-%global shortcommit %(c=%{commit}; echo ${c:0:7})
-%global commit_date 20180407
-%global gitrel .%{commit_date}.git%{shortcommit}
+#global commit 26a698c34788bb69123a1f3789970a16cf4d9641
+#global shortcommit %%(c=%{commit}; echo ${c:0:7})
+#global commit_date 20180407
+#global gitrel .%%{commit_date}.git%%{shortcommit}
 
 Name:           spirv-tools
-Version:        2018.3.0
-Release:        0.3%{?gitrel}%{?dist}
+Version:        2018.4
+Release:        1%{?dist}
 Summary:        API and commands for processing SPIR-V modules
 
 License:        ASL 2.0
 URL:            https://github.com/KhronosGroup/SPIRV-Tools
-Source0:        %url/archive/%{commit}.tar.gz#/%{name}-%{commit}.tar.gz
+Source0:        %url/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
 BuildRequires:  cmake3
 BuildRequires:  gcc-c++
@@ -38,7 +38,7 @@ Requires:       %{name}-libs%{?_isa} = %{version}-%{release}
 Development files for %{name}
 
 %prep
-%autosetup -p1 -n SPIRV-Tools-%{commit}
+%autosetup -p1 -n SPIRV-Tools-%{version}
 
 %build
 %__mkdir_p %_target_platform
@@ -46,6 +46,7 @@ pushd %_target_platform
 %cmake3 -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_LIBDIR=%{_lib} \
         -DSPIRV-Headers_SOURCE_DIR=%{_prefix} \
+        -DPYTHON_EXECUTABLE=%{__python3} \
         -GNinja ..
 %ninja_build
 popd
@@ -79,6 +80,9 @@ popd
 %{_libdir}/pkgconfig/SPIRV-Tools.pc
 
 %changelog
+* Mon Jul 23 2018 Leigh Scott <leigh123linux@googlemail.com> - 2018.4-1
+- Update to 2018.4 release
+
 * Sat Jul 14 2018 Fedora Release Engineering <releng@fedoraproject.org> - 2018.3.0-0.3.20180407.git26a698c
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
 
