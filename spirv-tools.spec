@@ -15,7 +15,7 @@ Source0:        %url/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 BuildRequires:  cmake3
 BuildRequires:  gcc-c++
 BuildRequires:  ninja-build
-BuildRequires:  python3
+BuildRequires:  python3-devel
 BuildRequires:  python3-rpm-macros
 BuildRequires:  spirv-headers-devel
 Requires:       %{name}-libs%{?_isa} = %{version}-%{release}
