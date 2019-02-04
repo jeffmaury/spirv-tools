@@ -66,6 +66,7 @@ popd
 %{_bindir}/spirv-lesspipe.sh
 %{_bindir}/spirv-link
 %{_bindir}/spirv-opt
+%{_bindir}/spirv-reduce
 %{_bindir}/spirv-stats
 %{_bindir}/spirv-val
 
@@ -73,6 +74,7 @@ popd
 %{_libdir}/libSPIRV-Tools-link.so
 %{_libdir}/libSPIRV-Tools-opt.so
 %{_libdir}/libSPIRV-Tools-shared.so
+%{_libdir}/libSPIRV-Tools-reduce.so
 %{_libdir}/libSPIRV-Tools.so
 
 %files devel
@@ -81,7 +83,7 @@ popd
 %{_libdir}/pkgconfig/SPIRV-Tools.pc
 
 %changelog
-* Mon Feb 04 2019 Dave Airlie <airlied@redhat.com - 2019.1-2
+* Mon Feb 04 2019 Dave Airlie <airlied@redhat.com> - 2019.1-1
 - Update to 2019.1 release
 
 * Sun Feb 03 2019 Fedora Release Engineering <releng@fedoraproject.org> - 2018.4-2
