@@ -4,15 +4,14 @@
 #global gitrel .%%{commit_date}.git%%{shortcommit}
 
 Name:           spirv-tools
-Version:        2019.1
-Release:        2%{?dist}
+Version:        2019.3
+Release:        1%{?dist}
 Summary:        API and commands for processing SPIR-V modules
 
 License:        ASL 2.0
 URL:            https://github.com/KhronosGroup/SPIRV-Tools
 Source0:        %url/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
-Patch0:         spirv-tools-index-fix.patch
 BuildRequires:  cmake3
 BuildRequires:  gcc-c++
 BuildRequires:  ninja-build
@@ -88,6 +87,9 @@ popd
 %{_libdir}/pkgconfig/SPIRV-Tools.pc
 
 %changelog
+* Mon Jun 10 13:46:33 CEST 2019 Robert-André Mauchin <zebob.m@gmail.com> - 2019.3-1
+- Release 2019.3
+
 * Thu Mar 07 2019 Dave Airlie <airlied@redhat.com> - 2019.1-2
 - Add patch to let vulkan-validation-layers build
 
