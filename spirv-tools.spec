@@ -1,16 +1,16 @@
-#global commit 26a698c34788bb69123a1f3789970a16cf4d9641
-#global shortcommit %%(c=%{commit}; echo ${c:0:7})
-#global commit_date 20180407
-#global gitrel .%%{commit_date}.git%%{shortcommit}
+%global commit aa9e8f538041db3055ea443080e0ccc315fa114f
+%global shortcommit %%(c=%{commit}; echo ${c:0:7})
+%global commit_date 20190715
+%global gitrel .%%{commit_date}.git%%{shortcommit}
 
 Name:           spirv-tools
-Version:        2019.3
-Release:        2%{?dist}
+Version:        2019.4
+Release:        0.1%{?gitrel}%{?dist}
 Summary:        API and commands for processing SPIR-V modules
 
 License:        ASL 2.0
 URL:            https://github.com/KhronosGroup/SPIRV-Tools
-Source0:        %url/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        %url/archive/%{commit}.tar.gz#/%{name}-%{commit}.tar.gz
 
 BuildRequires:  cmake3
 BuildRequires:  gcc-c++
@@ -43,7 +43,7 @@ Requires:       %{name}-libs%{?_isa} = %{version}-%{release}
 Development files for %{name}
 
 %prep
-%autosetup -p1 -n SPIRV-Tools-%{version}
+%autosetup -p1 -n SPIRV-Tools-%{commit}
 
 %build
 %__mkdir_p %_target_platform
@@ -87,6 +87,9 @@ popd
 %{_libdir}/pkgconfig/SPIRV-Tools.pc
 
 %changelog
+* Thu Aug 01 2019 Dave Airlie <airlied@redhat.com> - 2019.4-0.1
+- git snapshot to let newer vulkan validation layers build
+
 * Fri Jul 26 2019 Fedora Release Engineering <releng@fedoraproject.org> - 2019.3-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 
