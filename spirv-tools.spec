@@ -71,7 +71,6 @@ popd
 %{_bindir}/spirv-link
 %{_bindir}/spirv-opt
 %{_bindir}/spirv-reduce
-%{_bindir}/spirv-stats
 %{_bindir}/spirv-val
 
 %files libs
@@ -89,6 +88,7 @@ popd
 %changelog
 * Thu Aug 01 2019 Dave Airlie <airlied@redhat.com> - 2019.4-0.1
 - git snapshot to let newer vulkan validation layers build
+- stats removed upstream
 
 * Fri Jul 26 2019 Fedora Release Engineering <releng@fedoraproject.org> - 2019.3-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
