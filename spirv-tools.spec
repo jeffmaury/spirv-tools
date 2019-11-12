@@ -12,6 +12,8 @@ License:        ASL 2.0
 URL:            https://github.com/KhronosGroup/SPIRV-Tools
 Source0:        %url/archive/%{commit}.tar.gz#/%{name}-%{commit}.tar.gz
 
+Patch0: fix-cmake-install.patch
+
 BuildRequires:  cmake3
 BuildRequires:  gcc-c++
 BuildRequires:  ninja-build
@@ -59,7 +61,6 @@ popd
 %install
 %ninja_install -C %_target_platform
 
-rm -rf %{buildroot}/usr/lib/cmake
 %ldconfig_scriptlets libs
 
 %files
@@ -83,6 +84,7 @@ rm -rf %{buildroot}/usr/lib/cmake
 
 %files devel
 %{_includedir}/spirv-tools/
+%{_libdir}/cmake/*
 %{_libdir}/pkgconfig/SPIRV-Tools-shared.pc
 %{_libdir}/pkgconfig/SPIRV-Tools.pc
 
