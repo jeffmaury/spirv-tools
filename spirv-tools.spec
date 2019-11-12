@@ -59,6 +59,7 @@ popd
 %install
 %ninja_install -C %_target_platform
 
+rm -rf %{buildroot}/usr/lib/cmake
 %ldconfig_scriptlets libs
 
 %files
