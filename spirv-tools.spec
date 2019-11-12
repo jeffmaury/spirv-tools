@@ -1,11 +1,11 @@
-%global commit aa9e8f538041db3055ea443080e0ccc315fa114f
-%global shortcommit %%(c=%{commit}; echo ${c:0:7})
-%global commit_date 20190715
-%global gitrel .%%{commit_date}.git%%{shortcommit}
+%global commit 3e4abc9ac382b6fc7a88316a700652404b6fb9f7
+%global shortcommit %(c=%{commit}; echo ${c:0:7})
+%global commit_date 20191109
+%global gitrel .%{commit_date}.git%{shortcommit}
 
 Name:           spirv-tools
 Version:        2019.4
-Release:        0.1%{?gitrel}%{?dist}
+Release:        1%{?gitrel}%{?dist}
 Summary:        API and commands for processing SPIR-V modules
 
 License:        ASL 2.0
@@ -86,6 +86,9 @@ popd
 %{_libdir}/pkgconfig/SPIRV-Tools.pc
 
 %changelog
+* Tue Nov 12 2019 Dave Airlie <airlied@redhat.com> - 2019.4-1
+- git snapshot for newer glslang/validation layers
+
 * Thu Aug 01 2019 Dave Airlie <airlied@redhat.com> - 2019.4-0.1
 - git snapshot to let newer vulkan validation layers build
 - stats removed upstream
