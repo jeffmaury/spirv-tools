@@ -1,10 +1,10 @@
-%global commit 3e4abc9ac382b6fc7a88316a700652404b6fb9f7
+%global commit 97f1d485b76303ea7094fa164c0cc770b79f6f78
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
-%global commit_date 20191109
+%global commit_date 20200129
 %global gitrel .%{commit_date}.git%{shortcommit}
 
 Name:           spirv-tools
-Version:        2019.4
+Version:        2019.5
 Release:        1%{?gitrel}%{?dist}
 Summary:        API and commands for processing SPIR-V modules
 
@@ -89,6 +89,9 @@ popd
 %{_libdir}/pkgconfig/SPIRV-Tools.pc
 
 %changelog
+* Wed Jan 29 2020 Dave Airlie <airlied@redhat.com> - 2019.5-1
+- git snapshot for newer glslang/validation layers
+
 * Tue Nov 12 2019 Dave Airlie <airlied@redhat.com> - 2019.4-1
 - git snapshot for newer glslang/validation layers
 
