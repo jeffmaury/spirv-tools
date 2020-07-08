@@ -1,3 +1,5 @@
+%undefine __cmake_in_source_build
+
 %global commit 67f4838659f475d618c120e13d1a196d7e00ba4b
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 %global commit_date 20200421
@@ -46,18 +48,15 @@ Development files for %{name}
 %autosetup -p1 -n SPIRV-Tools-%{commit}
 
 %build
-%__mkdir_p %_target_platform
-pushd %_target_platform
 %cmake3 -DCMAKE_BUILD_TYPE=Release \
         -DCMAKE_INSTALL_LIBDIR=%{_lib} \
         -DSPIRV-Headers_SOURCE_DIR=%{_prefix} \
         -DPYTHON_EXECUTABLE=%{__python3} \
-        -GNinja ..
-%ninja_build
-popd
+        -GNinja
+%cmake3_build
 
 %install
-%ninja_install -C %_target_platform
+%cmake3_install
 
 %ldconfig_scriptlets libs
 
