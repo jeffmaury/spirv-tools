@@ -7,7 +7,7 @@
 
 Name:           spirv-tools
 Version:        2019.5
-Release:        2%{?gitrel}%{?dist}
+Release:        3%{?gitrel}%{?dist}
 Summary:        API and commands for processing SPIR-V modules
 
 License:        ASL 2.0
@@ -86,6 +86,9 @@ Development files for %{name}
 %{_libdir}/pkgconfig/SPIRV-Tools.pc
 
 %changelog
+* Wed Jul 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 2019.5-3.20200421.git67f4838
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
+
 * Wed Apr 22 2020 Dave Airlie <airlied@redhat.cvom> - 2019.5-2
 - git snapshot for newer glslang/validation layers
 
