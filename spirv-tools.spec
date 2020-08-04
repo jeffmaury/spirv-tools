@@ -6,13 +6,15 @@
 %global gitrel .%{commit_date}.git%{shortcommit}
 
 Name:           spirv-tools
-Version:        2019.5
-Release:        4%{?gitrel}%{?dist}
+Version:        2020.5
+Release:        1%{?gitrel}%{?dist}
 Summary:        API and commands for processing SPIR-V modules
 
 License:        ASL 2.0
 URL:            https://github.com/KhronosGroup/SPIRV-Tools
 Source0:        %url/archive/%{commit}.tar.gz#/%{name}-%{commit}.tar.gz
+
+Patch9: fix-shared-libs.patch
 
 BuildRequires:  cmake3
 BuildRequires:  gcc-c++
@@ -86,7 +88,7 @@ Development files for %{name}
 %{_libdir}/pkgconfig/SPIRV-Tools.pc
 
 %changelog
-* Tue Aug 04 2020 Dave Airlie <airlied@redhat.com> - 2019.5-4.20200803.git92a71657
+* Tue Aug 04 2020 Dave Airlie <airlied@redhat.com> - 2029.5-1.20200803.git92a71657
 - update to latest spirv-tools
 
 * Wed Jul 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 2019.5-3.20200421.git67f4838

@@ -1,0 +1,36 @@
+diff -up SPIRV-Tools-92a71657fcbae77caf79181f655fabe8be7e0d84/source/link/CMakeLists.txt.dma SPIRV-Tools-92a71657fcbae77caf79181f655fabe8be7e0d84/source/link/CMakeLists.txt
+--- SPIRV-Tools-92a71657fcbae77caf79181f655fabe8be7e0d84/source/link/CMakeLists.txt.dma	2020-08-04 14:12:02.354651856 +1000
++++ SPIRV-Tools-92a71657fcbae77caf79181f655fabe8be7e0d84/source/link/CMakeLists.txt	2020-08-04 14:12:11.728900944 +1000
+@@ -11,7 +11,7 @@
+ # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+-add_library(SPIRV-Tools-link STATIC
++add_library(SPIRV-Tools-link
+   linker.cpp
+ )
+ 
+diff -up SPIRV-Tools-92a71657fcbae77caf79181f655fabe8be7e0d84/source/opt/CMakeLists.txt.dma SPIRV-Tools-92a71657fcbae77caf79181f655fabe8be7e0d84/source/opt/CMakeLists.txt
+--- SPIRV-Tools-92a71657fcbae77caf79181f655fabe8be7e0d84/source/opt/CMakeLists.txt.dma	2020-08-04 01:45:24.000000000 +1000
++++ SPIRV-Tools-92a71657fcbae77caf79181f655fabe8be7e0d84/source/opt/CMakeLists.txt	2020-08-04 14:11:54.629446580 +1000
+@@ -233,7 +233,7 @@ endif()
+ 
+ spvtools_pch(SPIRV_TOOLS_OPT_SOURCES pch_source_opt)
+ 
+-add_library(SPIRV-Tools-opt STATIC ${SPIRV_TOOLS_OPT_SOURCES})
++add_library(SPIRV-Tools-opt ${SPIRV_TOOLS_OPT_SOURCES})
+ 
+ spvtools_default_compile_options(SPIRV-Tools-opt)
+ target_include_directories(SPIRV-Tools-opt
+diff -up SPIRV-Tools-92a71657fcbae77caf79181f655fabe8be7e0d84/source/reduce/CMakeLists.txt.dma SPIRV-Tools-92a71657fcbae77caf79181f655fabe8be7e0d84/source/reduce/CMakeLists.txt
+--- SPIRV-Tools-92a71657fcbae77caf79181f655fabe8be7e0d84/source/reduce/CMakeLists.txt.dma	2020-08-04 01:45:24.000000000 +1000
++++ SPIRV-Tools-92a71657fcbae77caf79181f655fabe8be7e0d84/source/reduce/CMakeLists.txt	2020-08-04 14:11:54.630446606 +1000
+@@ -77,7 +77,7 @@ endif()
+ 
+ spvtools_pch(SPIRV_TOOLS_REDUCE_SOURCES pch_source_reduce)
+ 
+-add_library(SPIRV-Tools-reduce STATIC ${SPIRV_TOOLS_REDUCE_SOURCES})
++add_library(SPIRV-Tools-reduce ${SPIRV_TOOLS_REDUCE_SOURCES})
+ 
+ spvtools_default_compile_options(SPIRV-Tools-reduce)
+ target_include_directories(SPIRV-Tools-reduce
