@@ -79,7 +79,7 @@ Development files for %{name}
 %{_libdir}/libSPIRV-Tools-opt.so
 %{_libdir}/libSPIRV-Tools-shared.so
 %{_libdir}/libSPIRV-Tools-reduce.so
-%{_libdir}/libSPIRV-Tools.so
+%{_libdir}/libSPIRV-Tools-shared.so
 
 %files devel
 %{_includedir}/spirv-tools/
