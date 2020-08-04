@@ -14,7 +14,7 @@ License:        ASL 2.0
 URL:            https://github.com/KhronosGroup/SPIRV-Tools
 Source0:        %url/archive/%{commit}.tar.gz#/%{name}-%{commit}.tar.gz
 
-Patch9: fix-shared-libs.patch
+Patch0: 0001-Revert-CMake-Enable-building-with-BUILD_SHARED_LIBS-.patch
 
 BuildRequires:  cmake3
 BuildRequires:  gcc-c++
@@ -77,7 +77,7 @@ Development files for %{name}
 %files libs
 %{_libdir}/libSPIRV-Tools-link.so
 %{_libdir}/libSPIRV-Tools-opt.so
-%{_libdir}/libSPIRV-Tools-shared.so
+%{_libdir}/libSPIRV-Tools.so
 %{_libdir}/libSPIRV-Tools-reduce.so
 %{_libdir}/libSPIRV-Tools-shared.so
 
