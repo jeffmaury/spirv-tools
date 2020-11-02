@@ -1,20 +1,18 @@
 %undefine __cmake_in_source_build
 
-%global commit 92a71657fcbae77caf79181f655fabe8be7e0d84
+%global commit f7da527757140ae701be58274ce6db2f4234d9ff
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
-%global commit_date 20200803
+%global commit_date 20201031
 %global gitrel .%{commit_date}.git%{shortcommit}
 
 Name:           spirv-tools
 Version:        2020.5
-Release:        1%{?gitrel}%{?dist}
+Release:        2%{?gitrel}%{?dist}
 Summary:        API and commands for processing SPIR-V modules
 
 License:        ASL 2.0
 URL:            https://github.com/KhronosGroup/SPIRV-Tools
 Source0:        %url/archive/%{commit}.tar.gz#/%{name}-%{commit}.tar.gz
-
-Patch0: 0001-Revert-CMake-Enable-building-with-BUILD_SHARED_LIBS-.patch
 
 BuildRequires:  cmake3
 BuildRequires:  gcc-c++
@@ -88,6 +86,9 @@ Development files for %{name}
 %{_libdir}/pkgconfig/SPIRV-Tools.pc
 
 %changelog
+* Mon Nov 02 2020 Dave Airlie <airlied@redhat.com> - 2020.5-2.20201031.gitf7da5277
+- update to latest spirv-tools
+
 * Tue Aug 04 2020 Dave Airlie <airlied@redhat.com> - 2029.5-1.20200803.git92a71657
 - update to latest spirv-tools
 
