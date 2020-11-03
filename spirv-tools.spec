@@ -52,6 +52,7 @@ Development files for %{name}
         -DCMAKE_INSTALL_LIBDIR=%{_lib} \
         -DSPIRV-Headers_SOURCE_DIR=%{_prefix} \
         -DPYTHON_EXECUTABLE=%{__python3} \
+	-DSPIRV_TOOLS_BUILD_STATIC=OFF \
         -GNinja
 %cmake3_build
 
