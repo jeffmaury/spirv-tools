@@ -7,12 +7,13 @@
 
 Name:           spirv-tools
 Version:        2020.5
-Release:        2%{?gitrel}%{?dist}
+Release:        3%{?gitrel}%{?dist}
 Summary:        API and commands for processing SPIR-V modules
 
 License:        ASL 2.0
 URL:            https://github.com/KhronosGroup/SPIRV-Tools
 Source0:        %url/archive/%{commit}.tar.gz#/%{name}-%{commit}.tar.gz
+Patch0:         %{name}-gcc11.patch
 
 BuildRequires:  cmake3
 BuildRequires:  gcc-c++
@@ -87,6 +88,10 @@ Development files for %{name}
 %{_libdir}/pkgconfig/SPIRV-Tools.pc
 
 %changelog
+* Fri Dec 04 2020 Jeff Law <law@redhat.com> - 2020.5-3.20201031.gitf7da5277
+- Fix undesirable strncpy call to instead use memcpy to avoid
+  gcc-11 diagnostic
+
 * Mon Nov 02 2020 Dave Airlie <airlied@redhat.com> - 2020.5-2.20201031.gitf7da5277
 - update to latest spirv-tools
 
