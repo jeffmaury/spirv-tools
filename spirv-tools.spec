@@ -7,7 +7,7 @@
 
 Name:           spirv-tools
 Version:        2020.5
-Release:        3%{?gitrel}%{?dist}
+Release:        4%{?gitrel}%{?dist}
 Summary:        API and commands for processing SPIR-V modules
 
 License:        ASL 2.0
@@ -88,6 +88,9 @@ Development files for %{name}
 %{_libdir}/pkgconfig/SPIRV-Tools.pc
 
 %changelog
+* Wed Jan 27 2021 Fedora Release Engineering <releng@fedoraproject.org> - 2020.5-4.20201031.gitf7da527
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
+
 * Fri Dec 04 2020 Jeff Law <law@redhat.com> - 2020.5-3.20201031.gitf7da5277
 - Fix undesirable strncpy call to instead use memcpy to avoid
   gcc-11 diagnostic
