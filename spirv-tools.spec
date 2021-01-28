@@ -1,13 +1,13 @@
 %undefine __cmake_in_source_build
 
-%global commit f7da527757140ae701be58274ce6db2f4234d9ff
+%global commit b27b1afd12d05bf238ac7368bb49de73cd620a8e
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
-%global commit_date 20201031
+%global commit_date 20201208
 %global gitrel .%{commit_date}.git%{shortcommit}
 
 Name:           spirv-tools
 Version:        2020.5
-Release:        4%{?gitrel}%{?dist}
+Release:        5%{?gitrel}%{?dist}
 Summary:        API and commands for processing SPIR-V modules
 
 License:        ASL 2.0
@@ -88,6 +88,9 @@ Development files for %{name}
 %{_libdir}/pkgconfig/SPIRV-Tools.pc
 
 %changelog
+* Thu Jan 28 2021 Dave Airlie <airlied@redhat.com> - 2020.5-5
+- Update to 1.2.162.0 SDK version
+
 * Wed Jan 27 2021 Fedora Release Engineering <releng@fedoraproject.org> - 2020.5-4.20201031.gitf7da527
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
 
