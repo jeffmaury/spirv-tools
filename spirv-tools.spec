@@ -1,13 +1,13 @@
 %undefine __cmake_in_source_build
 
-%global commit b27b1afd12d05bf238ac7368bb49de73cd620a8e
+%global commit dc72924cb31cd9f3dbc3eb47e9d926cf641e3a07
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
-%global commit_date 20201208
+%global commit_date 20210419
 %global gitrel .%{commit_date}.git%{shortcommit}
 
 Name:           spirv-tools
-Version:        2020.5
-Release:        5%{?gitrel}%{?dist}
+Version:        2021.1
+Release:        1%{?gitrel}%{?dist}
 Summary:        API and commands for processing SPIR-V modules
 
 License:        ASL 2.0
@@ -88,6 +88,9 @@ Development files for %{name}
 %{_libdir}/pkgconfig/SPIRV-Tools.pc
 
 %changelog
+* Tue May 18 2021 Dave Airlie <airlied@redhat.com> - 2021.1-1
+- Update to 1.2.176.1 SDK version
+
 * Thu Jan 28 2021 Dave Airlie <airlied@redhat.com> - 2020.5-5
 - Update to 1.2.162.0 SDK version
 
