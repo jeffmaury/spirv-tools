@@ -1,12 +1,12 @@
 %undefine __cmake_in_source_build
 
-%global commit dc72924cb31cd9f3dbc3eb47e9d926cf641e3a07
+%global commit 5dd2f76918bb2d0d67628e338f60f724f3e02e13
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
-%global commit_date 20210419
+%global commit_date 20210619
 %global gitrel .%{commit_date}.git%{shortcommit}
 
 Name:           spirv-tools
-Version:        2021.1
+Version:        2021.2
 Release:        1%{?gitrel}%{?dist}
 Summary:        API and commands for processing SPIR-V modules
 
@@ -88,6 +88,9 @@ Development files for %{name}
 %{_libdir}/pkgconfig/SPIRV-Tools.pc
 
 %changelog
+* Wed Jul 07 2021 Dave Airlie <airlied@redhat.com> - 2021.2-1
+- Update to 1.2.182.0 SDK Version
+
 * Tue May 18 2021 Dave Airlie <airlied@redhat.com> - 2021.1-1
 - Update to 1.2.176.1 SDK version
 
