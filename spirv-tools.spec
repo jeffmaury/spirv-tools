@@ -7,7 +7,7 @@
 
 Name:           spirv-tools
 Version:        2021.2
-Release:        1%{?gitrel}%{?dist}
+Release:        2%{?gitrel}%{?dist}
 Summary:        API and commands for processing SPIR-V modules
 
 License:        ASL 2.0
@@ -88,6 +88,9 @@ Development files for %{name}
 %{_libdir}/pkgconfig/SPIRV-Tools.pc
 
 %changelog
+* Fri Jul 23 2021 Fedora Release Engineering <releng@fedoraproject.org> - 2021.2-2.20210619.git5dd2f76
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_35_Mass_Rebuild
+
 * Wed Jul 07 2021 Dave Airlie <airlied@redhat.com> - 2021.2-1
 - Update to 1.2.182.0 SDK Version
 
