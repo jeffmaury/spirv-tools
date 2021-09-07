@@ -69,12 +69,14 @@ Development files for %{name}
 %{_bindir}/spirv-dis
 %{_bindir}/spirv-lesspipe.sh
 %{_bindir}/spirv-link
+%{_bindir}/spirv-lint
 %{_bindir}/spirv-opt
 %{_bindir}/spirv-reduce
 %{_bindir}/spirv-val
 
 %files libs
 %{_libdir}/libSPIRV-Tools-link.so
+%{_libdir}/libSPIRV-Tools-lint.so
 %{_libdir}/libSPIRV-Tools-opt.so
 %{_libdir}/libSPIRV-Tools.so
 %{_libdir}/libSPIRV-Tools-reduce.so
