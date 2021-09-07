@@ -13,7 +13,6 @@ Summary:        API and commands for processing SPIR-V modules
 License:        ASL 2.0
 URL:            https://github.com/KhronosGroup/SPIRV-Tools
 Source0:        %url/archive/%{commit}.tar.gz#/%{name}-%{commit}.tar.gz
-Patch0:         %{name}-gcc11.patch
 
 BuildRequires:  cmake3
 BuildRequires:  gcc-c++
