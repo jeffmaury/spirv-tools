@@ -1,12 +1,12 @@
 %undefine __cmake_in_source_build
 
-%global commit 1fbed83c8aab8517d821fcb4164c08567951938f
+%global commit 0cfe9e7219148716dfd30b37f4d21753f098707a
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
-%global commit_date 20210825
+%global commit_date 20240625
 %global gitrel .%{commit_date}.git%{shortcommit}
 
 Name:           spirv-tools
-Version:        2021.3
+Version:        2024.3
 Release:        1%{?gitrel}%{?dist}
 Summary:        API and commands for processing SPIR-V modules
 
